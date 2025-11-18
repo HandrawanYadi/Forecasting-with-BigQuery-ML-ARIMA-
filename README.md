@@ -89,14 +89,15 @@ flowchart LR
 
 ```
 
-## 📊 Final Visualization — Weekly Sales: Actual vs Forecasted Demand (Power BI)
-
-This chart presents the final output of the forecasting pipeline.  
-It overlays **historical weekly sales** with a **16-week ARIMA+ forecast**, allowing demand planners to clearly compare past performance with projected future demand.
+## 📊 Visualization — Weekly Sales: Actual vs Forecasted Demand (Power BI)
+<img width="1661" height="931" alt="Screenshot 2025-11-18 at 10 45 00 PM" src="https://github.com/user-attachments/assets/e1975cea-a044-4743-9097-698e45b12e6e" />
 
 ### What the Chart Shows
-- **Actual weekly sales** (solid blue area)
-- **Forecasted demand** using ARIMA+ (dotted line)
+This chart presents the final output of the forecasting pipeline.  
+It overlays **historical weekly sales** with a **16-week ARIMA+ forecast**, allowing comparison between past performance with projected future demand.
+- **Actual weekly sales** (Yellow Column)
+- **Forecasted demand** using ARIMA+ (Purple Column)
+- **Average Sales Line** (Dotted Blue Line)
 - **Confidence interval shading** (upper and lower bounds)
 - **Interactive segment slicer** for exploring 10 FMCG product segments:
   - Milk, Juice, Yogurt, ReadyMeal, SnackBar, etc.
@@ -104,15 +105,31 @@ It overlays **historical weekly sales** with a **16-week ARIMA+ forecast**, allo
   - Jan 2022 → Dec 2024 (actuals)  
   - 16-week forecast window into 2025
 
-### Why This Visual Matters
-- Shows seasonality and trend behaviour across FMCG categories  
-- Highlights the forecasted uplift or decline by segment  
-- Helps demand planners anticipate production and replenishment needs  
-- Provides a business-friendly output for S&OP and inventory planning  
-- Enables downstream SKU-level allocation (segment forecast × mix share)
+### **Chart Overview**
+<ul>
+<li>Actual weekly sales rise strongly through <strong>2022–2023</strong>, peaking around <strong>39K units</strong>.</li>
+<li>A gradual decline continues throughout <strong>2024</strong>.</li>
+<li>The ARIMA+ forecast projects a <strong>continued downward trend</strong> for the next 16 weeks.</li>
+<li>Confidence intervals widen toward the end:
+    <ul>
+        <li><strong>Upper bound:</strong> ~24K–29K</li>
+        <li><strong>Lower bound:</strong> dips below zero (a statistical artefact, not real negative demand)</li>
+    </ul>
+</li>
+</ul>
 
-### Screenshot
-> *<img width="1089" height="676" alt="Screenshot 2025-11-18 at 2 14 41 PM" src="https://github.com/user-attachments/assets/cd3e48a1-b3de-4ac9-baff-bdeffa73b25c" />*
+---
+
+### **Technical Interpretation**
+<ul>
+<li>ARIMA+ follows the recent trend, so weakening sales → weakening forecast.</li>
+<li>Negative lower bounds occur due to volatility + softening trend, not because demand can go below zero.</li>
+<li>Wider confidence intervals signal increasing uncertainty as the model forecasts further ahead.</li>
+<li>This represents only one forecasting engine; real businesses use multiple models and business judgement.</li>
+</ul>
+
+---
+
 
 
 
